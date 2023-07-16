@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vite App</title>
+    
+    <script type="module" crossorigin src="/assets/index-e1b3f278.js"></script>
+    <link rel="stylesheet" href="/assets/index-5f008c74.css">
+  </head>
+  <body>
+    
+    <div class="canvasWrapper">
+      <canvas width="950px" height="500px" id="mainCanvas"> </canvas>
+      <div id="controls">
+        <button id="addNodeButton">AddNode</button>
+        <div id="nodeWrapper"></div>
+        <div id="fileManagementSystem">
+          <button id="SaveBtn" class="btn">Save Configuration
+          </button>
+          <button id="LoadBtn" class="btn">Load Configuration
+          </button>
+        </div>
+        <div class="uploadInputWrapper">
+          <input type="file" name="fileInput" id="fileInput">
+          <h5 id="fileDirectionText">click load file again to load the file</h5>
+        </div>
+      </div>
+    </div>
+    <canvas width="950px" height="500px" id="hitCanvas" hidden> </canvas>
+  </body>
+</html>
