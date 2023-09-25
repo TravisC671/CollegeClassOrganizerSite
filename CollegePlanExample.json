@@ -11,6 +11,16 @@
       "y": 133
     },
     {
+      "name": "Engl279",
+      "credits": 3,
+      "color": "#3ddfff",
+      "isSettled": true,
+      "selected": false,
+      "semesterIndex": 0,
+      "x": 175,
+      "y": 133
+    },
+    {
       "name": "Hum/Soc1",
       "credits": 3,
       "color": "#3ddfff",
