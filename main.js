@@ -1,5 +1,5 @@
 import { intToHex, rgbToInt, getCursorPosition, getIntSuffix, sortNumber } from '/utils'
-import * as CollegePlanExample from './CollegePlanExample.json';
+import * as CollegePlanExample from './public/CollegePlanExample.json';
 
 const addNodeButton = document.getElementById("addNodeButton")
 const nodeWrapper = document.getElementById("nodeWrapper")
