@@ -1,4 +1,5 @@
 import { intToHex, rgbToInt, getCursorPosition, getIntSuffix, sortNumber } from '/utils'
+import * as CollegePlanExample from './CollegePlanExample.json';
 
 const addNodeButton = document.getElementById("addNodeButton")
 const nodeWrapper = document.getElementById("nodeWrapper")
@@ -32,28 +33,7 @@ font.load().then(function (font) {
 
 let origin = { x: -140, y: 0 }
 let semesterCredits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
-let nodes = [/*
-  {
-    name: 'CSC110',
-    credits: 3,
-    color: '#3dff57',
-    isSettled: false,
-    selected: false,
-    semesterIndex: 0,
-    x: 50,
-    y: 175
-  },
-  {
-    name: 'CSC110',
-    credits: 3,
-    color: '#3dff57',
-    isSettled: false,
-    selected: false,
-    semesterIndex: 0,
-    x: 400,
-    y: 100
-  }*/
-]
+let nodes = []
 
 //connections are the index the first is the right connection the third is from the left
 let connections = []
@@ -429,6 +409,7 @@ loadButton.addEventListener('click', () => {
       let contents = event.target.result;
       let data = JSON.parse(contents)
       nodes = data.nodes
+      console.log(nodes)
       connections = data.connections
       semesterCredits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 
@@ -445,5 +426,24 @@ loadButton.addEventListener('click', () => {
 fileInput.addEventListener('input', (e) => {
   document.getElementById('fileDirectionText').style.display = 'inline'
 })
+
+function loadDefaultPlan() {
+  let selectedFile = CollegePlanExample;
+
+  let reader = new FileReader();
+
+  nodes = CollegePlanExample.nodes;
+  connections = CollegePlanExample.connections;
+
+  semesterCredits = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+
+      nodes.forEach((element, index) => {
+        let elem = createNodeGui(index, element.name, element.credits, element.color)
+        semesterCredits[element.semesterIndex] += element.credits
+        nodeWrapper.appendChild(elem)
+      })
+}
+
+loadDefaultPlan()
 
 window.requestAnimationFrame(draw)
